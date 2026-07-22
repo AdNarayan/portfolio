@@ -9,15 +9,15 @@ export default function NagiSVG() {
   const handleMouseMove = useCallback((e) => {
     if (!containerRef.current || !svgRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
     svgRef.current.style.transform = `translate(${x}px, ${y}px)`;
   }, []);
 
   const handleClick = useCallback(() => {
     if (!svgRef.current) return;
     svgRef.current.style.animation = "none";
-    svgRef.current.offsetHeight; // reflow
+    svgRef.current.offsetHeight;
     svgRef.current.style.animation = "float 3s ease-in-out infinite, glow-pulse 2s ease-in-out infinite";
     svgRef.current.style.transform = "scale(0.85)";
     setTimeout(() => {
@@ -31,7 +31,7 @@ export default function NagiSVG() {
       onMouseMove={handleMouseMove}
       onClick={handleClick}
       className="cursor-pointer"
-      style={{ width: 240, height: 240 }}
+      style={{ width: 320, height: 320 }}
     >
       <svg
         ref={svgRef}

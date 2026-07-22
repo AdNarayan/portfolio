@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 @theme {
+  --font-syne: "Syne", sans-serif;
   --font-space: "Space Mono", monospace;
   --color-bg: #0a0a0a;
-  --color-muted: #4a4a4a;
-  --color-accent: #00ff9d;
-  --color-foreground: #e5e5e5;
+  --color-foreground: #ededed;
+  --color-muted: #666;
+  --color-primary: #00ff9d;
 }
 
 * {
@@ -27,25 +28,30 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 24px 24px;
   pointer-events: none;
 }
 
-/* Floating animation */
+.hud-label {
+  font-family: var(--font-space);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-10px); }
 }
 
-/* Glow pulse */
 @keyframes glow-pulse {
-  0%, 100% { filter: drop-shadow(0 0 8px rgba(0, 255, 157, 0.3)); }
-  50% { filter: drop-shadow(0 0 20px rgba(0, 255, 157, 0.6)); }
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(0, 255, 157, 0.2)); }
+  50% { filter: drop-shadow(0 0 18px rgba(0, 255, 157, 0.5)); }
 }
 
-/* Scroll indicator bounce */
 @keyframes bounce-down {
-  0%, 100% { transform: translateY(0); opacity: 0.6; }
-  50% { transform: translateY(8px); opacity: 1; }
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 1; }
 }
